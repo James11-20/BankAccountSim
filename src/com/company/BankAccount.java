@@ -10,13 +10,16 @@ public class BankAccount {
         if(amount>balance){
             return false;
         }
-        balance = balance - amount;
+        else balance = balance - amount;
         return true;
     }
     public double addIntrest(){
-        interestRate = (float) 1.02;
+        interestRate = (float) (interestRate*1.5);
         balance+= interestRate*balance;
                 return balance;
+    }
+    public double checkBalance(){
+        return balance;
     }
 
 
