@@ -1,5 +1,6 @@
 package com.company;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Bank {
@@ -22,16 +23,31 @@ public class Bank {
                     addCustomer(menuReader);
                     break;
                 case 3:
-                    Customer current = selectCustomer(menuReader);
+                    Optional<Customer> current = selectCustomer(menuReader);
+                    if(current.isPresent())
+                        doCustomerMenu(menuReader);
+                    else
+                        System.out.println("Error, could not find Customer");
                     break;
                 default:
                     System.out.println("Error, please choose one of the menu item");
             }
         }
     }
-    private Customer selectCustomer(Scanner reader) {
+
+    private void doCustomerMenu(Scanner menuReader) {
+        System.out.println("Not done yet!");
+    }
+
+    private Optional<Customer> selectCustomer(Scanner reader) {
         System.out.println("Customer ID of Customer to select:");
-        var idtoFind = reader.nextLine();
+        var idToFind = reader.nextInt();
+        for (var currentCustomer: allCustomers){
+            if (currentCustomer.getCustomerID() == idToFind){
+                return Optional.of(currentCustomer);
+            }
+        }
+        return Optional.empty();
     }
 
     private void addCustomer(Scanner inputReader){
