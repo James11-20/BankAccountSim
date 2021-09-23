@@ -1,3 +1,5 @@
+package com.company;
+
 import com.company.BankAccount;
 
 import java.util.ArrayList;

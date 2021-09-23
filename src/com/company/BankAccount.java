@@ -3,22 +3,22 @@ package com.company;
 public class BankAccount {
     private double balance;
     private float interestRate;
-    private int acountId;
+    private int accountId;
     private static int nextId = 100;
 
     public BankAccount(){
         interestRate = 0.02f;
-        acountId = nextId;
+        accountId = nextId;
         nextId++;
     }
-    public BankAccount(float intitalBlance,float interestRate) {
-        balance = intitalBlance;
-        interestRate = intitalBlance;
-        acountId = nextId;
+    public BankAccount(float initialBlance,float interestRate) {
+        balance = initialBlance;
+        interestRate = initialBlance;
+        accountId = nextId;
         nextId =+1;
     }
     public int getAccountId(){
-        return acountId;
+        return accountId;
     }
 
     public void deposit(double amount){
